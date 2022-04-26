@@ -21,4 +21,18 @@ class Event
       truck.inventory.keys.include?(item)
     end
   end
+
+  def sorted_item_list
+    @food_trucks.map do |truck|
+      truck.inventory.sort_by do |item|  # |item, quantity| still gives issues
+        item.first.name
+        # require "pry"; binding.pry
+      end
+    end.flatten.uniq
+  end
+
+  def overstocked_items
+
+  end
+
 end
